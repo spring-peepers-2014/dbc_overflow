@@ -3,6 +3,7 @@ A functional clone of Stack Overflow.
 
 ## QUICK START
 Run `$ bundle install`
+
 Run `$ rake db:setup` or `$ rake db:create:all`
 
 To run Capybara tests in Chrome instead of its default browser (Firefox), see testing section at bottom.
@@ -22,19 +23,19 @@ To run Capybara tests in Chrome instead of its default browser (Firefox), see te
 
 - Commit changes to your local repo (Git)
 
-`$git commit -m "message" `
+-- `$git commit -m "message" `
 
 - Rebase from DBC Overflow master (for most accurate commit history)
 
-`$git pull --rebase upstream master`
+-- `$git pull --rebase upstream master`
 
 - Push your feature branch to your fork
 
-`$git push origin feature-branch-name`
+-- `$git push origin feature-branch-name`
 
 - Submit a pull request to Stack Overflow master on Github
 
-Someone who did not write your code should review your code and merge
+-- Someone who did not write your code should review your code and merge
 
 
 ## TESTING
