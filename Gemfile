@@ -18,7 +18,7 @@ gem 'jquery-rails'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'debugger'
+# gem 'debugger'
 
 group :test, :development do
   gem 'rspec-rails', "~> 2.14"
