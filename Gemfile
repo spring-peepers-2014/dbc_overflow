@@ -4,6 +4,7 @@ gem 'rails', '3.2.18'
 
 gem 'pg'
 
+gem 'i18n', '0.6.9'
 
 # Gems used only for assets and not required
 # in production environments by default.
