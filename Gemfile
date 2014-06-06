@@ -4,7 +4,6 @@ gem 'rails', '3.2.18'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,6 +18,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'debugger'
+
 
 group :test, :development do
   gem 'rspec-rails', "~> 2.14"
