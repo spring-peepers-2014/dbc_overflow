@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-let(:question) { Question.new(title: "this is a question", body: "this is the body!")}
 
 describe "User can add a comment" do
+  let(:question) { Question.new(title: "this is a question", body: "this is the body!")}
+
   context "with valid title" do
     it "by going on the question's page" do
       visit questions_show(question)
