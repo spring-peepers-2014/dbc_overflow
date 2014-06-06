@@ -30,7 +30,7 @@ describe "Answer" do
     it "by creating an answer to a question WITHOUT a body" do
       fill_in 'Text', with: ''
       click_button 'Submit'
-      expect(page).to not_have_content "Have you tried turning it off and on again?"
+      expect(page).to have_content "NOPE. Nope Nope Nope. Try again with a real answer."
     end
   end
 
