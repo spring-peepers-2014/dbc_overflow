@@ -1,0 +1,7 @@
+<!-- this is the comment form! that we're going to append using ajax? or send to the question's show page -->
+
+<%= form_for(@comment, remote: true) do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit "post comment!"%>
+<% end %>
