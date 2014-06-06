@@ -16,7 +16,7 @@ end
 
 describe "#create" do
   before :each do
-    comment = Comment.new(body: "this is a comment")
+    comment = FactoryGirl.build(:comment)
   end
 
   context "with valid attributes" do
@@ -38,7 +38,7 @@ end
 
 describe "#edit" do
   it "assigns to the requested comment to @comment" do
-    comment = create(:comment)
+    comment = FactoryGirl.build(:comment)
     get :edit, id: comment
     expect(assigns(:comment)).to eq comment
   end
@@ -47,7 +47,7 @@ end
 
 describe "#update" do
   before :each do
-    comment = create(:comment, body: "to be edited!")
+    comment = FactoryGirl.build(:comment)
   end
 
   it "changes @comment with updated attributes" do
