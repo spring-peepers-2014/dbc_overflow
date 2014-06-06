@@ -43,3 +43,18 @@ describe "#edit" do
     expect(assigns(:comment)).to eq comment
   end
 end
+
+
+describe "#update" do
+  before :each do
+    comment = create(:comment, body: "to be edited!")
+  end
+
+  it "changes @comment with updated attributes" do
+    post :update, id: comment.id, comment: attributes_for(:comment, title: "DID IT")
+    comment.reload
+    expect(comment.title).to eq("DID IT")
+  end
+
+
+end
