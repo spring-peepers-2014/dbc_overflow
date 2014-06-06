@@ -27,12 +27,13 @@ describe "#create" do
         }.to change { Comment.count }.by(1)
     end
 
-      it "with invalid attributes" do
-        expect {
-          post :create
-          expect(response.status).to eq 422
-          }.to_not change { Comment.count}
-      end
+    it "with invalid attributes" do
+      expect {
+        post :create
+        expect(response.status).to eq 422
+        }.to_not change { Comment.count}
+    end
+  end
 end
 
 
