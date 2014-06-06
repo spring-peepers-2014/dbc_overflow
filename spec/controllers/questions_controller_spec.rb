@@ -15,10 +15,6 @@ describe 'Question controller' do
 	end
 
 	describe '#new' do
-		# it 'navigates to the new_question link' do 
-		# 	get :new_question
-		# end
-
 		it 'displays an error msg and does not proceed if question is below a certain length' do
 			expect { Question.new(body: 'too short').valid? }.to raise_error QuestionLengthError
 		end
