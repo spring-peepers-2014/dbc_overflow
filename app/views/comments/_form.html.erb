@@ -1,0 +1,7 @@
+<%= form_for [@context, @comment], remote: true do |f| %>
+  <div class="comment-form">
+    <%= f.label :Comment %>
+    <%= f.text_area :body, placeholder: "Enter your comment..." %>
+    <%= f.submit "Post Comment"%>
+  </div>
+<% end %>
