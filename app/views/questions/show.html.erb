@@ -8,7 +8,7 @@
 
 <% @answers.each do |answer| %>
   <p><%= answer.body %></p>
-  <p><%= link_to("Edit This Answer", '#') %>
+  <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %>
 <% end %>
 
 <%= render 'answers/form' %>
