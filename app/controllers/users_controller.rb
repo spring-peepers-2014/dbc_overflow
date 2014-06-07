@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      format.html { redirect_to @user,
-                    notice: 'Account successfully created.' }
+      redirect_to @user, notice: 'Account successfully created.'
     else
       format.html { render action: 'new' }
       format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -16,6 +15,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
   end
 end
