@@ -12,7 +12,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(name: params[:name])
+    question = Question.create(name: params[:name], body: params[:body])
+    redirect to question_path(question)
   end
 
   def update
