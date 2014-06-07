@@ -23,8 +23,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    question.update_attributes(question_params)
-    redirect_to question_path(question)
+    @question.update_attributes(question_params)
+    redirect_to question_path(@question)
   end
 
   private
