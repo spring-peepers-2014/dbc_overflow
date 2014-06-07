@@ -2,12 +2,12 @@ DbcOverflow::Application.routes.draw do
   resources :users
 
   resources :questions do
-    resources :comments, only: [:new, :create, :edit, :update, :delete]
-    resources :votes, only: [:create, :edit, :update]
+    resources :comments, only: [:create]
+    resources :votes, only: [:create]
 
     resources :answers, only: [:new, :create, :edit, :update, :delete] do
-      resources :comments, only: [:new, :create, :edit, :update, :delete]
-      resources :votes, only: [:create, :edit, :update]
+      resources :comments, only: [:create]
+      resources :votes, only: [:create]
     end
   end
   root to: 'questions#index'
