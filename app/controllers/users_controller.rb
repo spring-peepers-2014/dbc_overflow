@@ -21,4 +21,11 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  def update
+    p params
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+    redirect_to @user
+  end
 end
