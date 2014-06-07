@@ -1,6 +1,6 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :questions do |t|
       t.string :name
       t.text :body
       t.belongs_to :user
