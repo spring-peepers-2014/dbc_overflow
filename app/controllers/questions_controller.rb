@@ -11,14 +11,19 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def create
-    p question_params
     question = Question.create(question_params)
     redirect_to question_path(question)
   end
 
   def update
-    @question = Question.find(params[:id])
+    question = Question.find(params[:id])
+    question.update_attributes(question_params)
+    redirect_to question_path(question)
   end
 
   private
