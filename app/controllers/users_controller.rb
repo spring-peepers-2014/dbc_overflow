@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def index
+  end
+
   def new
     @user = User.new
   end
@@ -23,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    p params
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
     redirect_to @user
@@ -34,7 +36,10 @@ class UsersController < ApplicationController
   end
 
   def verify
+    p "TEST"
+    p session[:user]
     @user = User.find(email: params[:email])
+    p session[:user] = @user
   end
 
 
