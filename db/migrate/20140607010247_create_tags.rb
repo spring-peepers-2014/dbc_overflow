@@ -1,7 +1,7 @@
 class CreateTags < ActiveRecord::Migration
-  def up
-  end
+  def create do |t|
+    t.string :name
 
-  def down
+    t.timestamps
   end
 end
