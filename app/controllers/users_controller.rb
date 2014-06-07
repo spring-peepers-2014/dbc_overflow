@@ -28,4 +28,14 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
     redirect_to @user
   end
+
+  def login
+    @user = User.new
+  end
+
+  def verify
+    @user = User.find(email: params[:email])
+  end
+
+
 end

@@ -14,7 +14,7 @@
           <div class="nav_links">
             <ul>
               <li><%= link_to 'signup', new_user_path %></li>
-              <li>login</li>
+              <li><%=link_to 'login', user_login_path %></li>
               <li>your profile</li>
             </ul>
           </div>
@@ -28,6 +28,10 @@
           <li id="nav-users">Users</li>
           <li id="nav-ask">Ask Question</li>
         </ul>
+      </div>
+
+      <div id="login_div">
+
       </div>
 
 <%= yield %>
