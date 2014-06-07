@@ -12,12 +12,19 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(name: params[:name], body: params[:body])
-    redirect to question_path(question)
+    p question_params
+    question = Question.create(question_params)
+    redirect_to question_path(question)
   end
 
   def update
     @question = Question.find(params[:id])
+  end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:name, :body)
   end
 
 end
