@@ -1,7 +1,9 @@
 class CreateTags < ActiveRecord::Migration
-  def create do |t|
-    t.string :name
+  def change
+    create_table :tags do |t|
+      t.string :name
 
-    t.timestamps
+      t.timestamps
+    end
   end
 end
