@@ -1,4 +1,4 @@
-<%= form_for @answer do |f| %>
+<%= form_for [@question, @answer] do |f| %>
   <%= f.label :your_answer %><br>
   <%= f.text_area :body %><br>
   <%= f.submit "submit answer!"%>

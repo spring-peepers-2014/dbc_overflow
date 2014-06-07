@@ -3,3 +3,13 @@
 <p><%= @question.body %></p>
 
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
+
+<h2>Answers</h2>
+
+<% @answers.each do |answer| %>
+  <p><%= answer.body %></p>
+  <p><%= link_to("Edit This Answer", '#') %>
+<% end %>
+
+<%= render 'answers/form' %>
+
