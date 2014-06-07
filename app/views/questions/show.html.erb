@@ -20,5 +20,5 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
 
 <%= render 'answers/form' %>
 
-<%= render 'comments/form' %>
+<%= link_to 'add comment to question', new_question_comment_path(@question) %>
 

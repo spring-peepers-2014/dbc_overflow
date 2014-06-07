@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    p "These are the params for questions #{params}"
     @answers = @question.answers
     @answer = Answer.new
   end

@@ -4,3 +4,4 @@
 
 <h2>Edit Answer</h2>
 <%= render 'answers/form' %>
+<%= link_to 'add comment to answer',  new_question_answer_comment_path(@question, @answer) %>
