@@ -15,7 +15,7 @@
             <ul>
               <li><%= link_to 'signup', new_user_path %></li>
               <li><%=link_to 'login', user_login_path %></li>
-              <li>your profile</li>
+              <li><%= link_to 'your profile', users_path %></li>
             </ul>
           </div>
       </div>
@@ -23,7 +23,7 @@
       <div class="child_nav">
           <h1 class="logo-larger"><a href="/"><span id="dbc">dbc</span><span id="overflow">Overflow</a></span></h1>
         <ul>
-          <li id="nav-questions">Questions</li>
+          <li id="nav-questions"><%= link_to 'Questions', questions_path %></li>
           <li id="nav-tags">Tags</li>
           <li id="nav-users">Users</li>
           <li id="nav-ask">Ask Question</li>

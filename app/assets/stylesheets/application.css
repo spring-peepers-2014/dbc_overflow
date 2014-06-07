@@ -38,9 +38,14 @@
  padding-right: 10px;
 }
 
-.main-nav ul li:hover {
- color: #659EE6;
+.main-nav ul li a {
+  color: white;
 }
+
+.main-nav ul li a:hover {
+  color: #659EE6;
+}
+
 
 .logo {
   color: white;
@@ -93,6 +98,10 @@ span#overflow {
 
 .child_nav ul li:hover {
   background-color: #ff5f00;
+}
+
+.child_nav a {
+  color: white !important;
 }
 
 #nav-questions {
