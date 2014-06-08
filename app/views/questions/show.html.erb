@@ -6,6 +6,8 @@
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
 <% end %>
 
+asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
+
 <h2>Answers</h2>
 
 <% @answers.each do |answer| %>
