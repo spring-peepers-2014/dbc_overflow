@@ -3,9 +3,15 @@
 <p><%= @question.body %></p>
 
 <% if @question.user.id == session[:user_id] %>
-<%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
-<p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
+
+  <div id="question-comment">
+    <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
+  </div>
+
+  <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
+
 <% end %>
+
 asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
 
 <h2>Answers</h2>

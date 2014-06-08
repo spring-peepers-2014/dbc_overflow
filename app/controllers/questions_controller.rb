@@ -31,14 +31,14 @@ class QuestionsController < ApplicationController
   end
 
   def new_comment
-    @coment = Comment.new
-    render partial: 'comment', locals: { question: @question }
+    @comment = Comment.new
+    render partial: 'questions/comment', locals: { question: @question, comment: @comment }
   end
 
   def create_comment
     @comment = @question.comments.build(params[:question])
     if @comment.save
-      render partial: 'comment/show', locals: { comment: @comment }
+      render partial: 'comments/show', locals: { comment: @comment }
     else
       render partial: 'comment', locals: { question: @question }
     end
