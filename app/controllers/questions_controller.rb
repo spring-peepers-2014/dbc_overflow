@@ -28,10 +28,18 @@ class QuestionsController < ApplicationController
     redirect_to question_path(@question)
   end
 
-  def add_comment
+  def new_comment
+    @coment = Comment.new
+    render partial: 'comment', locals: { question: @question }
+  end
+
+  def create_comment
     @comment = @question.comments.build(params[:question])
-    @comment.save
-    redirect_to :back
+    if @comment.save
+      render partial: 'comment/show', locals: { comment: @comment }
+    else
+      render partial: 'comment', locals: { question: @question }
+    end
   end
 
   private
