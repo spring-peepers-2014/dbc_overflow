@@ -1,6 +1,9 @@
 <h1><%= @question.name %></h1>
 
 <p><%= @question.body %></p>
+<%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
+  Vote up
+<% end %>
 
 <% if @question.user.id == session[:user_id] %>
 <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
@@ -24,6 +27,7 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% else %>
   <h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
 <% end %>
+
 
 
 
