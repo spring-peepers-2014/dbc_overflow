@@ -6,10 +6,9 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
     if session[:user_id] == nil
       redirect_to user_login_path
-    end
-    @question = Question.new
   end
 
   def show

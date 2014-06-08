@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h2>Login, my friend</h2>
 
 <%= form_for @user, :url => user_verify_path, :html => { :method => :post } do |f| %>
@@ -8,6 +9,6 @@
   <%= f.submit "Login" %>
 <% end %>
 
-
+<h4>New here? <%= link_to 'Sign up!', new_user_path %></h4>
 
 
