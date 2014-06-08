@@ -37,6 +37,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+
   def verify
     p "TEST"
     p session[:user]
