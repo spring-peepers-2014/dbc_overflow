@@ -9,4 +9,14 @@ $(document).ready(function() {
     $(this).hide();
   });
 
+  $('.add_comment').on('ajax:success', function(e, data) {
+    $(this).html(data);
+    $('#answer_body').val('')
+  });
+
+  $('.comment_form').on('submit', function(e) {
+    $(this).hide();
+  });
+
+
 });
