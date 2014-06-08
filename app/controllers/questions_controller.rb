@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   def vote
     @vote = @question.votes.build(vote_value: params[:vote_value])
     @vote.save
-    redirect_to question_path(@question)
+    render json: @question.votes.sum(:vote_value).to_s
   end
 
   private
