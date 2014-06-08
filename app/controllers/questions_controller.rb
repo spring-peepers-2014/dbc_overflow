@@ -28,6 +28,12 @@ class QuestionsController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def add_comment
+    @comment = @question.comments.build(params[:question])
+    @comment.save
+    redirect_to :back
+  end
+
   private
 
   def question_params
