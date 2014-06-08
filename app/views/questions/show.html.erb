@@ -1,6 +1,6 @@
 <h1><%= @question.name %></h1>
+<hr />
 
-<p><%= @question.body %></p>
 <%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
   Vote up
 <% end %>
@@ -8,28 +8,42 @@
   Vote down
 <% end %>
 
+<p id="question_body"><%= @question.body %></p>
+
+
 <% if @question.user.id == session[:user_id] %>
-<%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
-<p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
+<%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %><br>
+<div id="edit_question"><%= link_to("Edit This Question", edit_question_path(@question)) %></div><br>
 <% end %>
-asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
+<div id="asked_by">asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %></div>
+<hr />
 
-<h2>Answers</h2>
-  <% @answers.each do |answer| %>
-    <p><%= answer.body %></p>
-    <% if answer.user.id == session[:user_id] %>
-      <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
-    answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
-      <%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %>
 
-      <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
-      Vote up
-      <% end %>
-      <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
-      Vote down
-      <% end %>
-    <% end %>
+
+
+
+<h4>Answers</h4>
+<hr />
+
+<% @answers.each do |answer| %>
+  <p><%= answer.body %></p>
+  <% if answer.user.id == session[:user_id] %>
+    <p id="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
+  answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %><br>
+  <div id="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
+
+  <hr />
   <% end %>
+    <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
+    Vote up
+    <% end %>
+    <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
+    Vote down
+  <% end %>
+<% end %>
+
+
+
 
 
 <% if session[:user_id] %>
