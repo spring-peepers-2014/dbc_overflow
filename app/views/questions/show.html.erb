@@ -3,6 +3,7 @@
 <p><%= @question.body %></p>
 
 <% if @question.user == session[:user] %>
+<%= link_to 'add comment to question', add_comment_question_path(@question) %>
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
 <% end %>
 
@@ -19,6 +20,7 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
 <% end %>
 
 <%= render 'answers/form' %>
+<%= render 'questions/comment' %>
 
-<%= link_to 'add comment to question', new_question_comment_path(@question) %>
+
 
