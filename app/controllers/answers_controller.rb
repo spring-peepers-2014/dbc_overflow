@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   end
 
   def new_comment
-    @coment = Comment.new
+    @comment = Comment.new
     render partial: 'comment', locals: { question: @question, answer: @answer }
   end
 

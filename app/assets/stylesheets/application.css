@@ -130,11 +130,11 @@ span#overflow {
 
 /**********************Answer/Comment*********************************/
 
-#question_body {
+.question_body {
   margin-bottom: 50px;
 }
 
-#asked_by {
+.asked_by {
   background-color: #deedff;
   width: 150px;
   padding: 5px 8px;
@@ -142,19 +142,19 @@ span#overflow {
   margin-bottom: 10px;
 }
 
-#add_comment {
+.add_comment {
   margin-top: 5px;
 }
 
-#add_comment a {
+.add_comment a {
   font-size: .8em;
 }
 
-#edit_question {
+.edit_question {
   margin-top: 5px;
 }
 
-#edit_question a {
+.edit_question a {
   font-size: .8em;
 }
 

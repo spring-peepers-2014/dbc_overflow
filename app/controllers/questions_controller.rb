@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def new_comment
     @comment = Comment.new
-    render partial: 'comment', locals: { question: @question }
+    render partial: 'questions/comment', locals: { question: @question, comment: @comment }
   end
 
   def create_comment
