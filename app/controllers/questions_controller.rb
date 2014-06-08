@@ -6,6 +6,9 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    if session[:user_id] == nil
+      redirect_to user_login_path
+    end
     @question = Question.new
   end
 
@@ -20,9 +23,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @user = User.find(session[:user_id])
-    @question.user = @user
-    @question.save
-    redirect_to question_path(@question)
+      @question.user = @user
+      @question.save
+      redirect_to question_path(@question)
+    end
   end
 
   def update
