@@ -18,7 +18,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params)
+    question = Question.new(question_params)
+    user = User.find(session[:user].id)
+    question.user_id = user.id
+    question.save
     redirect_to question_path(question)
   end
 
