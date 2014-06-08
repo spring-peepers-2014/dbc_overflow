@@ -18,7 +18,7 @@
               <li><%=link_to 'login', user_login_path %></li>
               <% else %>
               <li><%= link_to 'signout', user_logout_path %></li>
-              <li><%= link_to 'your profile', users_path %></li>
+              <li><%= link_to 'your profile', user_path(session[:user]) %></li>
               <% end %>
             </ul>
           </div>
