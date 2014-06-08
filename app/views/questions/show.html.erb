@@ -2,7 +2,9 @@
 
 <p><%= @question.body %></p>
 
+<% if @question.user == session[:user] %>
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
+<% end %>
 
 <h2>Answers</h2>
 
