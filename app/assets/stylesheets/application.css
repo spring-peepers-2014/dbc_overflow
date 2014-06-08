@@ -70,11 +70,10 @@ span#overflow {
 
 
 .child_nav {
-  margin-top: 40px;
-  padding-bottom: 150px;
   height: 120px;
   width: 100%;
-/*  display: inline;*/
+  box-shadow: 0px 0px 8px gray;
+  margin-bottom: 100px;
 }
 
 .logo-larger {
@@ -129,6 +128,35 @@ span#overflow {
 }
 
 
+/**********************Answer/Comment*********************************/
+
+#question_body {
+  margin-bottom: 50px;
+}
+
+#asked_by {
+  background-color: #deedff;
+  width: 150px;
+  padding: 5px 8px;
+  float: right;
+  margin-bottom: 10px;
+}
+
+#add_comment {
+  margin-top: 5px;
+}
+
+#add_comment a {
+  font-size: .8em;
+}
+
+#edit_question {
+  margin-top: 5px;
+}
+
+#edit_question a {
+  font-size: .8em;
+}
 
 
 
