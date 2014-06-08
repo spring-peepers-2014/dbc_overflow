@@ -6,10 +6,6 @@ DbcOverflow::Application.routes.draw do
   get 'logout' => 'users#logout', :as => 'user_logout'
 
   resources :questions do
-    member do
-      post 'comment'
-      post 'post'
-  resources :questions do
     resources :answers, only: [:new, :create, :edit, :update, :destroy] do
       member do
         get 'new_comment'
