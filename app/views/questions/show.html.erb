@@ -1,12 +1,15 @@
 <h1><%= @question.name %></h1>
 <hr />
-
+<div class="questions_vote">
 <%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
   Vote up
 <% end %>
+<div class="vote_count">
+</div>
 <%= link_to vote_question_path(@question, vote_value: -1), method: 'post', remote: true do %>
   Vote down
 <% end %>
+</div>
 
 <p class="question_body"><%= @question.body %></p>
 
@@ -32,12 +35,16 @@
 
   <hr />
   <% end %>
+  <div class="answers_vote">
     <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
     Vote up
     <% end %>
+    <div class="vote_count">
+    </div>
     <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
     Vote down
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
 
 
