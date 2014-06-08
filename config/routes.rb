@@ -19,5 +19,6 @@ DbcOverflow::Application.routes.draw do
       post 'vote'
     end
   end
+  resources :tags
   root to: 'questions#index'
 end
