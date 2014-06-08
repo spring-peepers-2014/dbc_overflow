@@ -2,18 +2,11 @@
 
 <p><%= @question.body %></p>
 
-<<<<<<< HEAD
 <% if @question.user == session[:user] %>
-<%= link_to 'add comment to question', add_comment_question_path(@question) %>
+<%= link_to 'add comment to question', new_comment_question(@question), remote: true  %>
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
 <% end %>
-
 asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
-=======
-
-<%= link_to 'add comment to question', 'c' %>
-<p><%= link_to "Edit This Question", add_comment_question(@question), remote: true %></p>
->>>>>>> 21c5e13... Add remote link to render new comment question form
 
 <h2>Answers</h2>
 
@@ -22,6 +15,7 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% if answer.user == session[:user] %>
     <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
   answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
+  <%= link_to 'add comment to question', new_comment_question_answer(@question, answer), remote: true  %>
   <% end %>
 <% end %>
 
