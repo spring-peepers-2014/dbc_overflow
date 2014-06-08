@@ -2,7 +2,7 @@
 
 <p><%= @question.body %></p>
 
-<% if @question.user == session[:user] %>
+<% if @question.user.id == session[:user_id] %>
 <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
 <% end %>
@@ -12,14 +12,14 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
 
 <% @answers.each do |answer| %>
   <p><%= answer.body %></p>
-  <% if answer.user == session[:user] %>
+  <% if answer.user.id == session[:user_id] %>
     <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
   answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
   <%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %>
   <% end %>
 <% end %>
 
-<% if @question.user == session[:user] %>
+<% if session[:user_id] %>
   <%= render 'answers/form' %>
   <% else %>
   <h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
