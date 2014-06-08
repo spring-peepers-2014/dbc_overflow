@@ -40,6 +40,7 @@
     Vote up
     <% end %>
     <div class="vote_count">
+      0
     </div>
     <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
     Vote down
