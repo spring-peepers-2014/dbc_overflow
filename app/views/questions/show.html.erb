@@ -19,7 +19,11 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% end %>
 <% end %>
 
-<%= render 'answers/form' %>
+<% if @question.user == session[:user] %>
+  <%= render 'answers/form' %>
+  <% else %>
+  <h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
+<% end %>
 
 
 

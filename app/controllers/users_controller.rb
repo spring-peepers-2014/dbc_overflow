@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       redirect_to @user, notice: 'Account successfully created.'
-      session[:user] = @user
+      session[:user_id] = @user.id
     else
       format.html { render action: 'new' }
       format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def verify
     @user = User.find_by_email(params[:user][:email])
     if @user.password_digest == params[:user][:password]
-      session[:user] = @user
+      session[:user_id] = @user.id
     end
     redirect_to root_path
   end

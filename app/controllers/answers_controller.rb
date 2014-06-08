@@ -7,11 +7,11 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.new(answer_params)
-    user = User.find(session[:user].id)
-    answer.user_id = user.id
-    answer.save
-    @question.answers << answer
+    @answer = Answer.new(answer_params)
+    @user = User.find(session[:user_id])
+    @answer.user_id = @user.id
+    @answer.save
+    @question.answers << @answer
     redirect_to question_path(@question)
   end
 

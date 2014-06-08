@@ -13,11 +13,11 @@
     <h1 class="logo"><a href="/"><span id="dbc">dbc</span><span id="overflow">Overflow</a></span></h1>
     <div class="nav_links">
       <ul>
-        <% unless session[:user] %>
+        <% unless session[:user_id] %>
         <li><%= link_to 'signup', new_user_path %></li>
         <li><%=link_to 'login', user_login_path %></li>
         <% else %>
-        <li><%= link_to 'your profile', user_path(session[:user]) %></li>
+        <li><%= link_to 'your profile', user_path(session[:user_id]) %></li>
         <li><%= link_to 'signout', user_logout_path %></li>
         <% end %>
       </ul>
@@ -41,6 +41,10 @@
 
     </div>
   <%= yield %>
+  <div class="container">
+    <%= params.inspect %><br>
+    User id is:<%= session[:user_id].inspect %>
+  </div>
 </div>
 
 </body>

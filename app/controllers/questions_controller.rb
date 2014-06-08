@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    p "These are the params for questions #{params}"
     @answers = @question.answers
     @answer = Answer.new
   end
@@ -19,11 +18,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    user = User.find(session[:user].id)
-    question.user_id = user.id
-    question.save
-    redirect_to question_path(question)
+    @question = Question.new(question_params)
+    @user = User.find(session[:user_id])
+    @question.user_id = user.id
+    @question.save
+    redirect_to question_path(@question)
   end
 
   def update
