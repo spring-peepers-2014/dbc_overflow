@@ -43,10 +43,11 @@ class UsersController < ApplicationController
   end
 
   def verify
-    p "TEST"
-    p session[:user]
-    @user = User.find(email: params[:email])
-    p session[:user] = @user
+    @user = User.find_by_email(params[:user][:email])
+    if @user.password_digest == params[:user][:password]
+      session[:user] = @user
+    end
+    redirect_to root_path
   end
 
 

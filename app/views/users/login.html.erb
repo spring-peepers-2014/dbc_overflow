@@ -1,6 +1,6 @@
 <h2>Login, my friend</h2>
 
-<%= form_for @user, :url => user_login_path, :html => { :method => :post } do |f| %>
+<%= form_for @user, :url => user_verify_path, :html => { :method => :post } do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %><br />
   <%= f.label :password %>
