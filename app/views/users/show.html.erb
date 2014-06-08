@@ -1,4 +1,7 @@
-<%= @user.name %>
+User: <%= @user.name %><br>
+Email: <%= @user.email %><br>
+Bio: <%= @user.bio %><br>
+
 <% if session[:user] == @user %>
 <%= link_to "Edit Profile", edit_user_path(@user) %>
 <% end %>
