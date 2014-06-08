@@ -10,7 +10,9 @@
 
 <% @answers.each do |answer| %>
   <p><%= answer.body %></p>
-  <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %>
+  <% if answer.user == session[:user] %>
+    <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %>
+  <% end %>
 <% end %>
 
 <%= render 'answers/form' %>
