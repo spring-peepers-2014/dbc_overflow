@@ -2,6 +2,8 @@
 
 <p><%= @question.body %></p>
 
+
+<%= link_to 'add comment to question', add_comment_question_path(@question) %>
 <p><%= link_to("Edit This Question", edit_question_path(@question)) %></p>
 
 <h2>Answers</h2>
@@ -12,6 +14,7 @@
 <% end %>
 
 <%= render 'answers/form' %>
+<%= render 'questions/comment' %>
 
-<%= link_to 'add comment to question', new_question_comment_path(@question) %>
+
 
