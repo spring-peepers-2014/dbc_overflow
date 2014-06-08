@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    p "These are the params for questions #{params}"
     @answers = @question.answers
     @answer = Answer.new
   end
@@ -28,6 +29,20 @@ class QuestionsController < ApplicationController
   def update
     @question.update_attributes(question_params)
     redirect_to question_path(@question)
+  end
+
+  def new_comment
+    @coment = Comment.new
+    render partial: 'comment', locals: { question: @question }
+  end
+
+  def create_comment
+    @comment = @question.comments.build(params[:question])
+    if @comment.save
+      render partial: 'comment/show', locals: { comment: @comment }
+    else
+      render partial: 'comment', locals: { question: @question }
+    end
   end
 
   private

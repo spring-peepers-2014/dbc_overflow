@@ -5,13 +5,19 @@ DbcOverflow::Application.routes.draw do
   get 'logout' => 'users#logout', :as => 'user_logout'
 
   resources :questions do
-    resources :comments, only: [:create]
-    resources :votes, only: [:create]
-
     resources :answers, only: [:new, :create, :edit, :update, :destroy] do
-      resources :comments, only: [:create]
-      resources :votes, only: [:create]
+      member do
+        get 'new_comment'
+        post 'create_comment'
+        post 'vote'
+      end
+    end
+    member do
+      get 'new_comment'
+      post 'create_comment'
+      post 'vote'
     end
   end
+
   root to: 'questions#index'
 end

@@ -1,6 +1,7 @@
-<%= form_for [@commentable, @comment], remote: true do |f| %>
+<%= form_for [@question, @answer], url: add_comment_question_answer_path, method: :post, remote: true do |f| %>
+
   <div class="comment-form">
-    <%= f.label :Comment %>
+    <%= f.label :comment %>
     <%= f.text_area :body, placeholder: "Enter your comment..." %>
     <%= f.submit "Post Comment"%>
   </div>

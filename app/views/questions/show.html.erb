@@ -8,6 +8,8 @@
 
 asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
 
+<%= link_to 'add comment to question', new_comment_question(@question), remote: true  %>
+
 <h2>Answers</h2>
 
 <% @answers.each do |answer| %>
@@ -15,8 +17,10 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% if answer.user == session[:user] %>
     <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
   answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
+  <%= link_to 'add comment to answer', new_comment_question_answer(@question, answer), remote: true  %>
   <% end %>
 <% end %>
 
 <%= render 'answers/form' %>
+
 
