@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @user = User.find(session[:user_id])
-    @question.user_id = user.id
+    @question.user = @user
     @question.save
     redirect_to question_path(@question)
   end
