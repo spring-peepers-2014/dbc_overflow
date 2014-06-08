@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
   def create_comment
     @comment = @answer.comments.build(params[:question])
     if @comment.save
-      render partial: 'comment/show', locals: { question: @question, answer: @answer }
+      render partial: 'comments/show', locals: { question: @question, answer: @answer }
     else
       render partial: 'comment', locals: { question: @question, answer: @answer}
     end
