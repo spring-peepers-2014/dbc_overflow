@@ -24,21 +24,24 @@
     </div>
   </div>
 
-  <div class="child_nav">
-    <h1 class="logo-larger"><a href="/"><span id="dbc">dbc</span><span id="overflow">Overflow</a></span></h1>
-    <ul>
-      <li id="nav-questions"><%= link_to 'Questions', questions_path %></li>
-      <li id="nav-tags">Tags</li>
-      <li id="nav-users"><%= link_to 'Users', users_path %></li>
-      <li id="nav-ask"><%= link_to 'Ask Question', new_question_path %></li>
-    </ul>
-  </div>
+    <div class="child_nav">
+      <h1 class="logo-larger"><a href="/"><span id="dbc">dbc</span><span id="overflow">Overflow</a></span></h1>
+      <ul>
+        <li id="nav-questions"><%= link_to 'Questions', questions_path %></li>
+        <li id="nav-tags">Tags</li>
+        <li id="nav-users"><%= link_to 'Users', users_path %></li>
+        <li id="nav-ask"><%= link_to 'Ask Question', new_question_path %></li>
+      </ul>
+        <hr />
+    </div>
 
-  <div id="login_div">
+ <div class="container">
 
-  </div>
-  
+    <div id="login_div">
+
+    </div>
   <%= yield %>
+</div>
 
 </body>
 </html>

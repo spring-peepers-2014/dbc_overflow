@@ -14,6 +14,8 @@
 .container {
   width: 80%;
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-nav {
@@ -65,26 +67,32 @@ span#overflow {
 }
 
 
+
+
+.child_nav {
+  margin-top: 40px;
+  padding-bottom: 150px;
+  height: 120px;
+  width: 100%;
+/*  display: inline;*/
+}
+
 .logo-larger {
   font-size: 2em;
   width: 300px;
   float: left;
   margin-left: 75px;
+  clear: both;
 }
 
 .logo-larger span#dbc {
  color: #001632;
 }
 
-
-.child_nav {
-  margin-top: 40px;
-  height: 120px;
-  width: 80%;
-}
-
 .child_nav ul {
-  margin-left: 75px;
+  margin-top: 30px;
+  float: left;
+  width: 600px;
 }
 
 .child_nav ul li {
@@ -119,6 +127,9 @@ span#overflow {
 #nav-ask {
   width: 100px;
 }
+
+
+
 
 
 
