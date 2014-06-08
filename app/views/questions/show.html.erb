@@ -1,6 +1,12 @@
 <h1><%= @question.name %></h1>
 
 <p><%= @question.body %></p>
+<%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
+  Vote up
+<% end %>
+<%= link_to vote_question_path(@question, vote_value: -1), method: 'post', remote: true do %>
+  Vote down
+<% end %>
 
 <% if @question.user.id == session[:user_id] %>
 <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
@@ -15,7 +21,14 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% if answer.user.id == session[:user_id] %>
     <p><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
   answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %>
-  <%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %>
+    <%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %>
+
+    <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
+    Vote up
+    <% end %>
+    <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
+    Vote down
+    <% end %>
   <% end %>
 <% end %>
 
@@ -24,6 +37,7 @@ asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (
   <% else %>
   <h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
 <% end %>
+
 
 
 
