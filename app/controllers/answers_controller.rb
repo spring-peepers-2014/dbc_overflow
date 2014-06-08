@@ -37,6 +37,12 @@ class AnswersController < ApplicationController
     end
   end
 
+  def vote
+    @vote = @answers.votes.build(vote_value: params[:vote_value])
+    @vote.save
+    redirect_to question_path(@question)
+  end
+
   private
 
   def answer_params
