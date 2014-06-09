@@ -13,15 +13,17 @@
 </div>
 
 <p class="question_body"><%= @question.body %></p>
-
-<div class="question-comment">
-  <% @comments.each do |comment| %>
+<div class='comments'>
+   <% @comments.each do |comment| %>
   <div class="comment">
 
     <%= comment.body %> 
-  <div id="commenters_name"><%= comment.user.name %></div>
+  <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
 </div>
   <% end %>
+</div>
+<div class="question-comment">
+ 
   <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
 </div><br>
 
@@ -38,7 +40,18 @@
   <p><%= answer.body %></p>
   <% if answer.user.id == session[:user_id] %>
     <p class="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
-  answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %><br>
+  answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %><br><br>
+  
+  <div class='comments'>
+   <% answer.comments.each do |comment| %>
+  <div class="comment">
+
+    <%= comment.body %> 
+  <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
+</div>
+  <% end %>
+</div>
+
   <div class="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
 
   <hr />
