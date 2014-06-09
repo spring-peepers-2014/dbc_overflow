@@ -1,34 +1,36 @@
 <h1><%= @question.name %></h1>
 <hr />
 <div class="questions_vote">
-<%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
+  <img src="/assets/upvote.png" width="20px"/>
+  <%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
   Vote up
-<% end %>
-<div class="vote_count">
-  <%= @question.votes.sum(:vote_value) %>
-</div>
-<%= link_to vote_question_path(@question, vote_value: -1), method: 'post', remote: true do %>
+  <% end %>
+  <div class="vote_count">
+    <%= @question.votes.sum(:vote_value) %>
+  </div>
+  <img src="/assets/downvote.png" width="20px"/>
+  <%= link_to vote_question_path(@question, vote_value: -1), method: 'post', remote: true do %>
   Vote down
-<% end %>
+  <% end %>
 </div>
 
 <p class="question_body"><%= @question.body %></p>
 <div class='comments'>
-   <% @comments.each do |comment| %>
-  <div class="comment">
+ <% @comments.each do |comment| %>
+ <div class="comment">
 
-    <%= comment.body %> 
+  <%= comment.body %> 
   <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
 </div>
-  <% end %>
+<% end %>
 </div>
 <div class="question-comment">
- 
+
   <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
 </div><br>
 
 <% if @question.user.id == session[:user_id] %>
-  <div class="edit_question"><%= link_to("Edit This Question", edit_question_path(@question)) %></div><br>
+<div class="edit_question"><%= link_to("Edit This Question", edit_question_path(@question)) %></div><br>
 <% end %>
 <div class="asked_by">asked by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %></div>
 <hr />
@@ -38,44 +40,46 @@
 
 <% @answers.each do |answer| %>
 <div class="answers_vote">
-    <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
-    Vote up
-    <% end %>
-    <div class="vote_count">
-     <%= answer.votes.sum(:vote_value) %>
-    </div>
-    <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
-    Vote down
-    <% end %>
-  </div>
-  <p><%= answer.body %></p>
-  <% if answer.user.id == session[:user_id] %>
-    <p class="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
-    <% end %>
-  answered by <%= link_to(answer.user.name, user_path(answer.user)) %> on <%= (answer.created_at).strftime("%b %d '%y") %><br><br>
-  
-  <div class='comments'>
-   <% answer.comments.each do |comment| %>
-  <div class="comment">
+  <img src="/assets/upvote.png" width="20px"/>
+  <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
+  Vote up
+  <% end %>
+  <div class="vote_count">
+   <%= answer.votes.sum(:vote_value) %>
+ </div>
+ <img src="/assets/downvote.png" width="20px"/>
+ <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
+ Vote down
+ <% end %>
+</div>
+<p><%= answer.body %></p>
+<% if answer.user.id == session[:user_id] %>
+<p class="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
+<% end %>
+answered by <%= link_to(answer.user.name, user_path(answer.user)) %> on <%= (answer.created_at).strftime("%b %d '%y") %><br><br>
 
-    <%= comment.body %> 
+<div class='comments'>
+ <% answer.comments.each do |comment| %>
+ <div class="comment">
+
+  <%= comment.body %> 
   <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
 </div>
 
 </div>
 
-  <div class="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
+<div class="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
 
-  <hr />
-  <% end %>
-  
+<hr />
+<% end %>
+
 <% end %>
 
 
 <% if session[:user_id] %>
-  <%= render 'answers/form' %>
-  <% else %>
-  <h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
+<%= render 'answers/form' %>
+<% else %>
+<h4>Please <%= link_to 'login', user_login_path %> to submit an answer  </h4>
 <% end %>
 
 
