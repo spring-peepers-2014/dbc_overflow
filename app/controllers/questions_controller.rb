@@ -51,6 +51,7 @@ class QuestionsController < ApplicationController
 
   def vote
     @vote = @question.votes.build(vote_value: params[:vote_value])
+    @vote.user = User.find(session[:user_id])
     @vote.save
     render json: @question.votes.sum(:vote_value).to_s
   end
