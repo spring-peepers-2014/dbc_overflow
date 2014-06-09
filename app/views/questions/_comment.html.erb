@@ -1,7 +1,8 @@
+ <div class="question-comment-form">
 <%= form_for @question, url: create_comment_question_path, method: :post, remote: true do |f| %>
-  <div class="comment-form">
+
     <%= f.label :comment %>
     <%= f.text_area :body, placeholder: "Enter your comment..." %>
     <%= f.submit "Post Comment"%>
-  </div>
 <% end %>
+</div>

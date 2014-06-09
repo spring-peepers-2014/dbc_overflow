@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#question_body').val('')
   });
 
-  $('.comment_form').on('submit', function(e) {
+  $('.edit_questions').on('submit', function(e) {
     $(this).hide();
   });
 
