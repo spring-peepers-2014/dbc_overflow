@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#question_body').val('')
   });
 
-  $('.edit_questions').on('submit', function(e) {
+  $('.edit_questions').on('submit', function(e, data) {
     $(this).hide();
   });
 
@@ -14,9 +14,10 @@ $(document).ready(function() {
     $('#answer_body').val('')
   });
 
-  $('.comment_form').on('submit', function(e) {
+  $('#answer_comment_form').on('submit', function(e, data) {
     $(this).hide();
   });
 
 
 });
+
