@@ -4,7 +4,8 @@
 <%= link_to vote_question_path(@question, vote_value: 1), method: 'post', remote: true do %>
   Vote up
 <% end %>
-<div class="vote_count">0
+<div class="vote_count">
+  <%= @question.votes.sum(:vote_value) %>
 </div>
 <%= link_to vote_question_path(@question, vote_value: -1), method: 'post', remote: true do %>
   Vote down
@@ -40,7 +41,7 @@
     Vote up
     <% end %>
     <div class="vote_count">
-      0
+     <%= answer.votes.sum(:vote_value) %>
     </div>
     <%= link_to vote_question_answer_path(@question, answer, vote_value: -1), method: 'post', remote: true do %>
     Vote down
