@@ -39,7 +39,8 @@ class QuestionsController < ApplicationController
   end
 
   def create_comment
-    @comment = @question.comments.build(params[:question])
+    @user = User.find(session[:user_id])
+    @comment = @question.comments.build(params[:question], user: @user)
     if @comment.save
       render partial: 'comments/show', locals: { comment: @comment }
     else
