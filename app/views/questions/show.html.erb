@@ -15,6 +15,13 @@
 <p class="question_body"><%= @question.body %></p>
 
 <div class="question-comment">
+  <% @comments.each do |comment| %>
+  <div class="comment">
+
+    <%= comment.body %> 
+  <div id="commenters_name"><%= comment.user.name %></div>
+</div>
+  <% end %>
   <%= link_to 'add comment to question', new_comment_question_path(@question), remote: true  %>
 </div><br>
 
