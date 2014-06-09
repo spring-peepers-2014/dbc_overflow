@@ -37,26 +37,7 @@
 <hr />
 
 <% @answers.each do |answer| %>
-  <p><%= answer.body %></p>
-  <% if answer.user.id == session[:user_id] %>
-    <p class="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
-  answered by <%= link_to(@question.user.name, user_path(@question.user)) %> on <%= (@question.created_at).strftime("%b %d '%y") %><br><br>
-  
-  <div class='comments'>
-   <% answer.comments.each do |comment| %>
-  <div class="comment">
-
-    <%= comment.body %> 
-  <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
-</div>
-  <% end %>
-</div>
-
-  <div class="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
-
-  <hr />
-  <% end %>
-  <div class="answers_vote">
+<div class="answers_vote">
     <%= link_to vote_question_answer_path(@question, answer, vote_value: 1), method: 'post', remote: true do %>
     Vote up
     <% end %>
@@ -67,6 +48,27 @@
     Vote down
     <% end %>
   </div>
+  <p><%= answer.body %></p>
+  <% if answer.user.id == session[:user_id] %>
+    <p class="edit_answer"><%= link_to("Edit This Answer", edit_question_answer_path(@question, answer)) %></p>
+    <% end %>
+  answered by <%= link_to(answer.user.name, user_path(answer.user)) %> on <%= (answer.created_at).strftime("%b %d '%y") %><br><br>
+  
+  <div class='comments'>
+   <% answer.comments.each do |comment| %>
+  <div class="comment">
+
+    <%= comment.body %> 
+  <div id="commenters_name">by: <%= link_to comment.user.name, user_path(comment.user) %></div>
+</div>
+
+</div>
+
+  <div class="add_comment"><%= link_to 'add comment to question', new_comment_question_answer_path(@question, answer), remote: true  %></div>
+
+  <hr />
+  <% end %>
+  
 <% end %>
 
 
